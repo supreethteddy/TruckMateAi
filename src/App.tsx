@@ -3,38 +3,27 @@ import React, { useState } from "react";
 const App: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("All Trucks");
   const [activeTab, setActiveTab] = useState("home");
-  const [trackingActiveTab, setTrackingActiveTab] = useState('live');
   
   // Search screen states
   const [showFilters, setShowFilters] = useState(false);
   const [selectedTruckType, setSelectedTruckType] = useState('');
-  const [capacityRange, setCapacityRange] = useState([1, 50]);
-  const [priceRange, setPriceRange] = useState([1000, 10000]);
-  const [searchRadius, setSearchRadius] = useState(10);
+  const [capacityRange] = useState([1, 50]);
+  const [priceRange] = useState([1000, 10000]);
   const [sortBy, setSortBy] = useState('distance');
   const [mapView, setMapView] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   
   // Profile screen states
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-  const [locationEnabled, setLocationEnabled] = useState(true);
   
   // Voice features state
   const [isListening, setIsListening] = useState(false);
   const [voiceText, setVoiceText] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('hi'); // Hindi by default
-  const [voiceBookingMode, setVoiceBookingMode] = useState(false);
   
   // AI features state
-  const [aiMatchingEnabled, setAiMatchingEnabled] = useState(true);
+  const [aiMatchingEnabled] = useState(true);
   const [showAiInsights, setShowAiInsights] = useState(false);
-  const [cargoDetails, setCargoDetails] = useState({
-    weight: '',
-    dimensions: '',
-    type: '',
-    fragile: false,
-    temperature: 'normal'
-  });
 
   // Voice recognition functions
   const startVoiceRecognition = () => {
@@ -80,39 +69,6 @@ const App: React.FC = () => {
       rating: 4.6,
       capacity: "7 Tons",
       image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop&crop=center",
-    },
-  ];
-
-  const searchResults = [
-    {
-      id: 1,
-      from: "Mumbai",
-      to: "Delhi",
-      distance: "1,414 km",
-      estimatedTime: "24-26 hours",
-      price: "₹15,000",
-      truckType: "Container Truck",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop&crop=center",
-    },
-    {
-      id: 2,
-      from: "Mumbai",
-      to: "Bangalore",
-      distance: "984 km",
-      estimatedTime: "16-18 hours",
-      price: "₹12,500",
-      truckType: "Mini Truck",
-      image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=250&fit=crop&crop=center",
-    },
-    {
-      id: 3,
-      from: "Mumbai",
-      to: "Pune",
-      distance: "148 km",
-      estimatedTime: "3-4 hours",
-      price: "₹3,200",
-      truckType: "Refrigerated",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop&crop=center",
     },
   ];
 
@@ -588,44 +544,6 @@ const App: React.FC = () => {
     { from: 'Chennai', to: 'Bangalore', distance: '346 km', price: '₹3,200 - ₹4,800', duration: '6-8 hrs' },
     { from: 'Pune', to: 'Hyderabad', distance: '559 km', price: '₹5,500 - ₹7,200', duration: '9-11 hrs' },
     { from: 'Kolkata', to: 'Bhubaneswar', distance: '442 km', price: '₹2,800 - ₹3,500', duration: '7-9 hrs' }
-  ];
-
-  // AI-Powered Matching & Optimization Data
-  const aiOptimizedRoutes = [
-    {
-      id: 1,
-      from: 'Mumbai',
-      to: 'Delhi',
-      distance: '1,424 km',
-      duration: '22-26 hrs',
-      basePrice: '₹10,000',
-      aiOptimizedPrice: '₹9,200',
-      fuelCost: '₹3,500',
-      tollCost: '₹1,200',
-      totalCost: '₹13,900',
-      savings: '₹800',
-      aiScore: 95,
-      compatibility: 'Perfect Match',
-      truckRecommendation: 'Container Truck - Tata 407',
-      reasons: ['Optimal fuel efficiency', 'Low toll route', 'High demand period']
-    },
-    {
-      id: 2,
-      from: 'Chennai',
-      to: 'Bangalore',
-      distance: '346 km',
-      duration: '6-8 hrs',
-      basePrice: '₹4,000',
-      aiOptimizedPrice: '₹3,600',
-      fuelCost: '₹1,200',
-      tollCost: '₹400',
-      totalCost: '₹5,200',
-      savings: '₹400',
-      aiScore: 88,
-      compatibility: 'Good Match',
-      truckRecommendation: 'Mini Truck - Mahindra Bolero',
-      reasons: ['Short distance optimization', 'Peak time pricing', 'Fuel efficient route']
-    }
   ];
 
   // AI Demand Forecasting Data
